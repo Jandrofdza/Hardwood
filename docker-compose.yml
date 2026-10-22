@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: hardwood
+      POSTGRES_PASSWORD: hardwood
+      POSTGRES_DB: hardwood
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./scripts/init-test-db.sql:/docker-entrypoint-initdb.d/init-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hardwood"]
+      interval: 2s
+      retries: 20
+volumes:
+  db-data:

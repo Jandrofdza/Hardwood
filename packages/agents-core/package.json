@@ -1,0 +1,24 @@
+{
+  "name": "@hardwood/agents-core",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Framework-free core: manifests, run state machine, policy, audit chain, connector interfaces.",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "default": "./dist/testing/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "zod": "4.6.7"
+  }
+}

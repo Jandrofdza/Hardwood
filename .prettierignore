@@ -1,0 +1,7 @@
+pnpm-lock.yaml
+dist
+coverage
+.next
+apps/api/src/generated
+PLAN.md
+CLAUDE.md

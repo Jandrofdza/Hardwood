@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches-ignore: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: hardwood
+          POSTGRES_PASSWORD: hardwood
+          POSTGRES_DB: hardwood_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U hardwood"
+          --health-interval 2s
+          --health-retries 20
+    env:
+      TEST_DATABASE_URL: postgresql://hardwood:hardwood@localhost:5432/hardwood_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test:coverage
+      - run: pnpm build
