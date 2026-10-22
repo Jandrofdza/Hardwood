@@ -27,6 +27,14 @@ pnpm db:seed                # five demo buildings in Mexico City
 pnpm dev                    # API on :4000, console on http://localhost:3000
 ```
 
+## agents-core
+
+`packages/agents-core` holds the framework-free core: agent manifests, the run state machine
+(`run.ts`), the policy engine, payment idempotency, the hash-chained audit log, and
+`AgentEngine`, which drives runs through request → approval → payment over storage ports. Import
+`@hardwood/agents-core/testing` for the in-memory host used by the tests. Design notes are in
+[ADR-003](docs/adr/003-agents-core-design.md).
+
 Checks:
 
 ```sh
