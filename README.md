@@ -22,7 +22,16 @@ Requires Node 22+, pnpm 10 and Postgres 16 (Docker or a local install).
 pnpm i
 cp .env.example .env
 docker compose up db        # or point DATABASE_URL at any Postgres 16
-pnpm test                   # all unit tests; API DB tests run when TEST_DATABASE_URL is set
+pnpm db:migrate             # create tables
+pnpm db:seed                # five demo buildings in Mexico City
+pnpm dev                    # API on :4000, console on http://localhost:3000
+```
+
+Checks:
+
+```sh
+pnpm test                   # unit tests; API database tests also run when TEST_DATABASE_URL is set
+pnpm test:coverage
 pnpm lint
 pnpm typecheck
 ```

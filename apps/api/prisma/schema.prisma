@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum BuildingUse {
+  residential
+  office
+  mixed_use
+  retail
+}
+
+/// A building Hardwood knows about. v1 holds basic facts only.
+model Building {
+  id             String      @id @default(uuid()) @db.Uuid
+  slug           String      @unique
+  name           String
+  street         String
+  colonia        String
+  alcaldia       String
+  postalCode     String
+  city           String      @default("Ciudad de México")
+  lat            Float
+  lng            Float
+  use            BuildingUse
+  yearBuilt      Int
+  floors         Int
+  basementLevels Int         @default(0)
+  units          Int
+  grossAreaM2    Int
+  lotAreaM2      Int?
+  parkingSpaces  Int         @default(0)
+  elevators      Int         @default(0)
+  description    String
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
