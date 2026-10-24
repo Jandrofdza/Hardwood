@@ -1,0 +1,22 @@
+{
+  "name": "@hardwood/agent-utilities",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Utilities Agent: pays electricity (CFE), water (SACMEX) and property tax (Predial CDMX).",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hardwood/agents-core": "workspace:*",
+    "zod": "4.6.7"
+  }
+}

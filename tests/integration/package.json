@@ -1,0 +1,15 @@
+{
+  "name": "@hardwood/integration-tests",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Cross-package flows: agents + connectors + core, no database.",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hardwood/agent-utilities": "workspace:*",
+    "@hardwood/agents-core": "workspace:*",
+    "@hardwood/connectors": "workspace:*"
+  }
+}

@@ -92,11 +92,41 @@ importers:
         specifier: 4.3.3
         version: 4.3.3
 
+  packages/agent-utilities:
+    dependencies:
+      '@hardwood/agents-core':
+        specifier: workspace:*
+        version: link:../agents-core
+      zod:
+        specifier: 4.6.7
+        version: 4.6.7
+
   packages/agents-core:
     dependencies:
       zod:
         specifier: 4.6.7
         version: 4.6.7
+
+  packages/connectors:
+    dependencies:
+      '@hardwood/agents-core':
+        specifier: workspace:*
+        version: link:../agents-core
+      vitest:
+        specifier: '>=5'
+        version: 5.0.5(@types/node@22.19.1)(@vitest/coverage-v8@5.0.5)(vite@8.3.5(@types/node@22.19.1)(esbuild@0.28.2)(jiti@2.7.0)(tsx@4.23.15))
+
+  tests/integration:
+    dependencies:
+      '@hardwood/agent-utilities':
+        specifier: workspace:*
+        version: link:../../packages/agent-utilities
+      '@hardwood/agents-core':
+        specifier: workspace:*
+        version: link:../../packages/agents-core
+      '@hardwood/connectors':
+        specifier: workspace:*
+        version: link:../../packages/connectors
 
 packages:
 

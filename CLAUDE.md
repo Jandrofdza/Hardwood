@@ -25,4 +25,8 @@ The full build plan is in [`PLAN.md`](./PLAN.md). Read it before changing anythi
 
 ## Commands
 
-Filled in during Phase 0 (`pnpm i`, `pnpm test`, `pnpm lint`, `pnpm dev`, `docker compose up db`).
+- `pnpm i`: install (also generates the Prisma client)
+- `docker compose up db`: local Postgres 16; then `pnpm db:migrate` and `pnpm db:seed`
+- `pnpm dev`: API on :4000, console on :3000
+- `pnpm test`: all tests; API database tests also run when `TEST_DATABASE_URL` is set
+- `pnpm test:coverage`, `pnpm lint`, `pnpm typecheck`, `pnpm build`

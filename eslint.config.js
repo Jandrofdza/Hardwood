@@ -9,7 +9,7 @@ const internal = (allowed) => ({
     {
       patterns: [
         {
-          regex: allowed.length ? `^@hardwood/(?!(${allowed.join("|")})$)` : "^@hardwood/",
+          regex: allowed.length ? `^@hardwood/(?!(${allowed.join("|")})(/|$))` : "^@hardwood/",
           message: "Dependency rule: see PLAN.md section 3.",
         },
       ],

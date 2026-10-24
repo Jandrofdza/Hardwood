@@ -1,0 +1,34 @@
+{
+  "name": "@hardwood/connectors",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Biller connectors by mode. Phase 2: mock.",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./testing": {
+      "source": "./src/testing/index.ts",
+      "types": "./dist/testing/index.d.ts",
+      "default": "./dist/testing/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@hardwood/agents-core": "workspace:*"
+  },
+  "peerDependencies": {
+    "vitest": ">=5"
+  },
+  "peerDependenciesMeta": {
+    "vitest": {
+      "optional": true
+    }
+  }
+}

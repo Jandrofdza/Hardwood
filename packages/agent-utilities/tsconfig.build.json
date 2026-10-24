@@ -1,0 +1,6 @@
+{
+  "extends": "./tsconfig.json",
+  // Builds compile against dependencies' published types, not their source.
+  "compilerOptions": { "customConditions": [] },
+  "exclude": ["src/**/*.test.ts"]
+}
